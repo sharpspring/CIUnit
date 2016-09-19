@@ -1,4 +1,4 @@
-# CIUnit for CodeIgniter 2
+
 
 This is a SharpSpring clone of the Celc/CIUnit (https://github.com/kitsunde/CIUnit). We'll be making changes as necessary for our own unit testing purposes.
 

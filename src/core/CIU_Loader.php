@@ -13,7 +13,7 @@
 * If you use MY_Loader, change the paraent class.
 */
 
-class CIU_Loader extends CI_Loader
+class CIU_Loader extends MY_Loader
 {
 
     /**
@@ -49,11 +49,15 @@ class CIU_Loader extends CI_Loader
             $subclass = APPPATH . 'libraries/' . $subdir . config_item('subclass_prefix') . $class . '.php';
             $ciu_subclass = CIUPATH . 'libraries/' . $subdir . config_item('ciu_subclass_prefix') . $class . '.php';
 
+            if ( $class === 'Session') {
+                $ciu_subclass = APPPATH . 'libraries/TestSession.php';
+            }
+
             // Is this a class extension request?
             if (file_exists($ciu_subclass)) {
                 $baseclass = BASEPATH . 'libraries/' . ucfirst($class) . '.php';
 
-                if (!file_exists($baseclass)) {
+                if (!file_exists($baseclass) && $class !== 'Session') {
                     log_message('error', "Unable to load the requested class: " . $class);
                     show_error("Unable to load the requested class: " . $class);
                 }
@@ -74,9 +78,9 @@ class CIU_Loader extends CI_Loader
                     log_message('debug', $class . " class already loaded. Second attempt ignored.");
                     return;
                 }
-
-                include_once($baseclass);
-
+                if ($class !== 'Session') {
+                    include_once($baseclass);
+                }
                 if (file_exists($subclass)) {
                     include_once($subclass);
                 }
