@@ -3,10 +3,10 @@
 /**
  * @group Model
  */
-class PhoneCarrierModelTest extends CIUnit_TestCase
+class CountryModelTest extends CIUnit_TestCase
 {
     protected $tables = array(
-  //      'phone_carrier' => 'phone_carrier'
+        'country' => 'country'
     );
 
     private $_pcm;
@@ -35,9 +35,9 @@ class PhoneCarrierModelTest extends CIUnit_TestCase
 
         */
 /*
-        $this->CI->load->model('Phone_carrier_model');
-        $this->_pcm = $this->CI->Phone_carrier_model;
-        */
+        $this->CI->load->model('Country_model');
+        $this->_pcm = $this->CI->Country_model;
+  */    
     }
 
     public function tearDown() : void
@@ -48,18 +48,18 @@ class PhoneCarrierModelTest extends CIUnit_TestCase
     // ------------------------------------------------------------------------
 
     /**
-     * @dataProvider GetCarriersProvider
+     * @dataProvider GetCountriesProvider
      */
-    public function testGetCarriers(array $attributes, $expected)
+    public function testGetCountries(array $attributes, $expected)
     {
-        /*
-        $actual = $this->_pcm->getCarriers($attributes);
+        
+   //     $actual = $this->_pcm->getCountries($attributes);
 
-        $this->assertEquals($expected, count($actual));
-        */
+   //     $this->assertEquals($expected, count($actual));
+        
     }
 
-    public function GetCarriersProvider()
+    public function GetCountriesProvider()
     {
         return array(
             array(array('name'), 5)

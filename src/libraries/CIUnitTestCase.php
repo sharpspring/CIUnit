@@ -13,7 +13,7 @@ trait CIUnit_Assert
     {
         $haystack = $ciOutput->get_headers();
         $needle = array("Location: " . site_url($location), TRUE);
-        $constraint = new PHPUnit_Framework_Constraint_TraversableContains($needle, TRUE);
+        $constraint = new PHPUnit\Framework\Constraint\TraversableContains($needle, TRUE);
 
         self::assertThat($haystack, $constraint, $message);
     }
@@ -23,7 +23,7 @@ trait CIUnit_Assert
  * Extending the default phpUnit Framework_TestCase Class
  * providing eg. fixtures, custom assertions, utilities etc.
  */
-class CIUnit_TestCase extends PHPUnit_Framework_TestCase
+class CIUnit_TestCase extends PHPUnit\Framework\TestCase
 {
     use CIUnit_Assert;
 
@@ -87,7 +87,7 @@ class CIUnit_TestCase extends PHPUnit_Framework_TestCase
      *
      * @author Eric Jones
      */
-    protected function setUp()
+    protected function setUp() : void
     {
         // Only run if the $tables attribute is set.
         if (!empty($this->tables)) {
@@ -104,7 +104,7 @@ class CIUnit_TestCase extends PHPUnit_Framework_TestCase
      *
      * @author Eric Jones
      */
-    protected function tearDown()
+    protected function tearDown() : void
     {
         // Only run if the $tables attribute is set.
         if (!empty($this->tables)) {

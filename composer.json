@@ -4,7 +4,7 @@
     "minimum-stability": "dev",
     "license": "MIT",
     "require": {
-        "phpunit/phpunit": "4.8.*",
+        "phpunit/phpunit": ">6 <10",
         "mustangostang/spyc": "0.5.*"
     },
     "autoload": {
